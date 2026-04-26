@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convite Estratégico | Dra. Daniela</title>
+  <style>
+    :root {
+      --ink: #24302f;
+      --muted: #65736f;
+      --paper: #fbfcfa;
+      --line: #dce5df;
+      --teal: #0d6b63;
+      --teal-dark: #084c47;
+      --mint: #eef7f2;
+      --sage: #dbeadf;
+      --coral: #c96b54;
+      --gold: #b99455;
+      --white: #fff;
+      --shadow: 0 22px 60px rgba(27, 49, 47, 0.13);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(135deg, rgba(219, 234, 223, 0.75), rgba(251, 252, 250, 0.25) 40%), var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    .hero {
+      padding: 42px 24px 54px;
+      color: var(--white);
+      background:
+        linear-gradient(125deg, rgba(8, 76, 71, 0.96), rgba(13, 107, 99, 0.9) 60%, rgba(201, 107, 84, 0.78)),
+        radial-gradient(circle at 82% 20%, rgba(255,255,255,.22), transparent 32%);
+      overflow: hidden;
+    }
+
+    .shell {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 62px;
+      color: rgba(255,255,255,.78);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.6rem, 7vw, 6.2rem);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin-bottom: 24px;
+      color: rgba(255,255,255,.86);
+      font-size: clamp(1.08rem, 2.2vw, 1.34rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .button,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .button {
+      background: var(--white);
+      color: var(--teal-dark);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255,255,255,.34);
+      color: var(--white);
+      background: rgba(255,255,255,.08);
+    }
+
+    .reading-card {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      width: min(1080px, calc(100% - 48px));
+      margin: -30px auto 0;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .reading-item {
+      padding: 22px;
+      background: var(--white);
+    }
+
+    .reading-item strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--teal-dark);
+      font-size: .96rem;
+    }
+
+    .reading-item span {
+      display: block;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    main {
+      padding: 42px 24px 76px;
+    }
+
+    .section {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+      padding: 46px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-child { border-bottom: 0; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(220px, .42fr) minmax(0, .9fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .kicker {
+      margin-bottom: 10px;
+      color: var(--coral);
+      font-size: .78rem;
+      font-weight: 850;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      color: var(--teal-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      color: var(--teal-dark);
+      font-size: 1.02rem;
+      line-height: 1.25;
+    }
+
+    .copy {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .copy p { margin-bottom: 16px; }
+
+    .callout {
+      margin: 24px 0;
+      padding: 22px 24px;
+      border-left: 4px solid var(--coral);
+      background: var(--mint);
+      color: var(--ink);
+      font-size: 1.12rem;
+    }
+
+    .diagnostic-questions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .question {
+      padding: 16px 18px;
+      border-radius: 8px;
+      background: var(--mint);
+      color: var(--teal-dark);
+      font-weight: 750;
+    }
+
+    .bullets {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .bullet {
+      min-height: 70px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.74);
+      color: var(--muted);
+    }
+
+    .table {
+      display: grid;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .row:last-child { border-bottom: 0; }
+
+    .row strong,
+    .row span {
+      padding: 18px 20px;
+    }
+
+    .row strong {
+      color: var(--teal-dark);
+      background: var(--mint);
+    }
+
+    .row span { color: var(--muted); }
+
+    .map {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .map-title,
+    .map-base {
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 13px 20px;
+      border-radius: 999px;
+      background: var(--teal-dark);
+      color: var(--white);
+      font-size: .8rem;
+      font-weight: 850;
+      letter-spacing: .05em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .map-base { background: var(--ink); }
+
+    .line {
+      width: 1px;
+      height: 28px;
+      margin: 0 auto;
+      background: var(--line);
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .pillar {
+      min-height: 158px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--teal);
+      border-radius: 8px;
+      background: linear-gradient(180deg, var(--mint), var(--white));
+    }
+
+    .pillar:nth-child(2) { border-top-color: var(--gold); }
+    .pillar:nth-child(3) { border-top-color: var(--coral); }
+    .pillar:nth-child(4) { border-top-color: #557a95; }
+    .pillar:nth-child(5) { border-top-color: #466f5f; }
+
+    .pillar p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .product {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: var(--teal-dark);
+      font-size: .76rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .product p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .cta {
+      padding: 38px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--teal-dark), var(--ink));
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 { color: var(--white); }
+
+    .cta p {
+      max-width: 760px;
+      color: rgba(255,255,255,.82);
+      font-size: 1.06rem;
+    }
+
+    .cta-note {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      color: rgba(255,255,255,.86);
+      font-size: .92rem;
+      font-weight: 750;
+    }
+
+    footer {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 860px) {
+      .topline, .reading-card, .two-col, .bullets, .diagnostic-questions, .pillars, .products, .row {
+        grid-template-columns: 1fr;
+      }
+
+      .topline { margin-bottom: 44px; }
+      .section { padding: 38px 0; }
+    }
+
+    @media (max-width: 540px) {
+      .hero, main { padding-left: 18px; padding-right: 18px; }
+      h1 { font-size: 2.45rem; }
+      .reading-card { width: calc(100% - 36px); }
+      .hero-actions { align-items: stretch; }
+      .button, .button-secondary { width: 100%; }
+      .map, .cta { padding: 22px 18px; }
+      .map-title, .map-base { width: 100%; border-radius: 8px; }
+    }
+
+    @page {
+      size: A4;
+      margin: 12mm;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      html,
+      body {
+        width: 210mm;
+        min-height: 297mm;
+        background: var(--paper) !important;
+      }
+
+      body {
+        font-size: 10.2pt;
+        line-height: 1.38;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 12mm 10mm 14mm;
+        color: var(--white) !important;
+        background:
+          linear-gradient(125deg, rgba(8, 76, 71, 0.96), rgba(13, 107, 99, 0.9) 60%, rgba(201, 107, 84, 0.78)),
+          radial-gradient(circle at 82% 20%, rgba(255,255,255,.22), transparent 32%) !important;
+        page-break-after: avoid;
+      }
+
+      .shell,
+      .section,
+      footer {
+        width: 100%;
+        max-width: none;
+      }
+
+      .topline {
+        margin-bottom: 22mm;
+        color: rgba(255,255,255,.78) !important;
+      }
+
+      h1 {
+        max-width: 170mm;
+        margin-bottom: 7mm;
+        font-size: 36pt;
+      }
+
+      .lead {
+        max-width: 165mm;
+        color: rgba(255,255,255,.86) !important;
+        font-size: 12.5pt;
+      }
+
+      main {
+        padding: 6mm 0 0;
+      }
+
+      .hero-actions,
+      .reading-card {
+        display: none;
+      }
+
+      .section {
+        padding: 8mm 0;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .two-col {
+        grid-template-columns: 46mm 1fr;
+        gap: 10mm;
+      }
+
+      h2 {
+        font-size: 21pt;
+      }
+
+      h3 {
+        font-size: 10.5pt;
+      }
+
+      .copy {
+        font-size: 10.5pt;
+      }
+
+      .callout {
+        margin: 5mm 0 0;
+        padding: 5mm 6mm;
+      }
+
+      .bullets {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3mm;
+      }
+
+      .diagnostic-questions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3mm;
+      }
+
+      .bullet {
+        min-height: auto;
+        padding: 4mm;
+      }
+
+      .table,
+      .map,
+      .product,
+      .cta {
+        box-shadow: none;
+      }
+
+      .row {
+        grid-template-columns: 42mm 1fr;
+      }
+
+      .row strong,
+      .row span {
+        padding: 4mm 5mm;
+      }
+
+      .map {
+        padding: 7mm;
+      }
+
+      .pillars {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 3mm;
+      }
+
+      .pillar {
+        min-height: 34mm;
+        padding: 4mm;
+      }
+
+      .pillar p,
+      .product p {
+        font-size: 9pt;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3.5mm;
+      }
+
+      .product {
+        padding: 5mm;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .cta {
+        padding: 8mm;
+        color: var(--white) !important;
+        background: linear-gradient(135deg, var(--teal-dark), var(--ink)) !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .cta h2 {
+        color: var(--white) !important;
+      }
+
+      .cta p {
+        color: rgba(255,255,255,.82) !important;
+      }
+
+      footer {
+        padding-top: 4mm;
+        font-size: 8.5pt;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="shell">
+      <div class="topline">
+        <span>Convite Estratégico</span>
+        <span>Dra. Daniela · Geriatria</span>
+      </div>
+      <h1>Um diagnóstico para crescer com mais estratégia.</h1>
+      <p class="lead">Um olhar de gestão para fortalecer sua atuação médica dentro de um mercado de longevidade em expansão, com uma operação mais clara, previsível e preparada para crescer além das redes sociais.</p>
+      <div class="hero-actions" aria-label="Ações principais">
+        <a class="button" href="#proximo-passo">Ver próximo passo</a>
+        <a class="button-secondary" href="#entregaveis">Ver entregáveis</a>
+      </div>
+    </div>
+  </header>
+
+  <aside class="reading-card" aria-label="Resumo da proposta">
+    <div class="reading-item">
+      <strong>Por que este convite</strong>
+      <span>Porque a longevidade virou uma megatendência de saúde, consumo e cuidado.</span>
+    </div>
+    <div class="reading-item">
+      <strong>Oportunidade de mercado</strong>
+      <span>O Brasil já tem cerca de 32 milhões de pessoas 60+ e déficit estimado de 28 a 29 mil geriatras.</span>
+    </div>
+    <div class="reading-item">
+      <strong>O que você recebe</strong>
+      <span>Diagnóstico, mapa de oportunidades e plano inicial de prioridades.</span>
+    </div>
+    <div class="reading-item">
+      <strong>Como começa</strong>
+      <span>Uma conversa objetiva sobre operação, agenda, canais e pacientes.</span>
+    </div>
+  </aside>
+
+  <main>
+    <section class="section two-col">
+      <div>
+        <p class="kicker">Ideia central</p>
+        <h2>Não é sobre postar mais. É sobre gerir melhor.</h2>
+      </div>
+      <div class="copy">
+        <p>Dra. Daniela, sua atuação como geriatra reúne ativos importantes: conhecimento técnico, cuidado humanizado, atendimento em consultório, clínica e domicílio, além de uma especialidade cada vez mais necessária para famílias que buscam segurança, autonomia e qualidade de vida para seus pais.</p>
+        <p>No Brasil, o mercado da longevidade já movimenta mais de R$ 1,6 trilhão por ano. Ao mesmo tempo, a oferta de especialistas ainda é limitada: há aproximadamente 3,1 mil geriatras ativos, cerca de 1 geriatra para cada 12 mil idosos.</p>
+        <div class="callout">O maior potencial está em olhar para sua atuação médica como um negócio profissional de saúde inserido em uma demanda crescente, com posicionamento claro, canais de aquisição, relacionamento, experiência e indicadores simples de gestão.</div>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div>
+        <p class="kicker">Contexto de mercado</p>
+        <h2>Longevidade deixou de ser apenas um tema médico.</h2>
+      </div>
+      <div class="copy">
+        <p>O envelhecimento da população está redesenhando saúde, tecnologia, moradia, finanças, bem-estar, lazer e consumo. As famílias não buscam apenas uma consulta pontual; procuram orientação confiável para prevenção, doenças crônicas, segurança em casa, uso de medicamentos, cuidado domiciliar e qualidade de vida.</p>
+        <p>Esse cenário aumenta o valor estratégico da geriatria. Em um mercado com população idosa crescente, poucos especialistas e famílias mais conscientes sobre envelhecimento saudável, a diferenciação depende de uma operação capaz de ser encontrada, compreendida, escolhida, indicada e acompanhada com consistência.</p>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div>
+        <p class="kicker">O convite</p>
+        <h2>Diagnóstico estratégico da operação médica.</h2>
+      </div>
+      <div class="copy">
+        <p>A proposta é mapear oportunidades comerciais e de gestão que possam fortalecer seu posicionamento, aumentar a previsibilidade de pacientes particulares e identificar canais de crescimento além das redes sociais, especialmente em um mercado com demanda crescente por cuidado especializado.</p>
+        <div class="bullets">
+          <div class="bullet">Fortalecer o posicionamento como geriatra.</div>
+          <div class="bullet">Melhorar a jornada entre contato e agendamento.</div>
+          <div class="bullet">Mapear parcerias, rede médica e canais locais de aquisição.</div>
+          <div class="bullet">Criar indicadores simples para decisões melhores.</div>
+        </div>
+        <div class="diagnostic-questions" aria-label="Perguntas que o diagnóstico deve responder">
+          <div class="question">De onde vêm hoje os melhores pacientes?</div>
+          <div class="question">Onde a operação perde oportunidades?</div>
+          <div class="question">Quais parcerias do ecossistema de longevidade merecem prioridade?</div>
+          <div class="question">Como medir evolução sem complexidade?</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div>
+        <p class="kicker">Frentes</p>
+        <h2>O que será analisado</h2>
+      </div>
+      <div class="table">
+        <div class="row"><strong>Mercado</strong><span>Demanda local, economia da longevidade, perfil das famílias e lacunas de atendimento especializado.</span></div>
+        <div class="row"><strong>Posicionamento</strong><span>Público prioritário, proposta de valor, diferenciais e mensagem central.</span></div>
+        <div class="row"><strong>Aquisição</strong><span>Indicações, Instagram, Google, rede médica, parcerias e oportunidades locais.</span></div>
+        <div class="row"><strong>Conversão</strong><span>WhatsApp, resposta inicial, agenda, objeções e condução até a consulta.</span></div>
+        <div class="row"><strong>Experiência</strong><span>Jornada do paciente e da família antes, durante e depois do atendimento.</span></div>
+        <div class="row"><strong>Gestão</strong><span>Indicadores, rotina de acompanhamento, prioridades e tomada de decisão.</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="kicker">Mapa visual</p>
+      <h2>Crescimento sustentável do consultório</h2>
+      <div class="map" role="img" aria-label="Mapa da estratégia com mercado, posicionamento, aquisição, conversão e experiência sustentados por indicadores e gestão.">
+        <div class="map-title">Crescimento sustentável do consultório</div>
+        <div class="line"></div>
+        <div class="pillars">
+          <article class="pillar"><h3>Mercado</h3><p>Longevidade, demanda e especialidade subatendida.</p></article>
+          <article class="pillar"><h3>Posicionamento</h3><p>Mensagem, público e diferencial.</p></article>
+          <article class="pillar"><h3>Aquisição</h3><p>Indicações, parcerias, Google e Instagram.</p></article>
+          <article class="pillar"><h3>Conversão</h3><p>WhatsApp, agenda e atendimento inicial.</p></article>
+          <article class="pillar"><h3>Experiência</h3><p>Paciente, família, confiança e retorno.</p></article>
+        </div>
+        <div class="line"></div>
+        <div class="map-base">Indicadores e gestão</div>
+      </div>
+    </section>
+
+    <section class="section" id="entregaveis">
+      <p class="kicker">Entregáveis</p>
+      <h2>Produtos a serem desenvolvidos</h2>
+      <div class="products">
+        <article class="product"><span class="tag">Produto 1</span><h3>Diagnóstico Estratégico</h3><p>Leitura do cenário atual, pontos fortes, gargalos, riscos e oportunidades conectadas ao mercado da longevidade.</p></article>
+        <article class="product"><span class="tag">Produto 2</span><h3>Mapa de Oportunidades</h3><p>Ações priorizadas por impacto: parcerias, indicações qualificadas, busca local, ganhos rápidos e estruturação.</p></article>
+        <article class="product"><span class="tag">Produto 3</span><h3>Plano de Crescimento</h3><p>Prioridades, metas e indicadores para crescer com mais previsibilidade em um mercado de demanda crescente.</p></article>
+        <article class="product"><span class="tag">Produto 4</span><h3>Acompanhamento Estratégico</h3><p>Possível consultoria contínua com revisão de indicadores e ajustes de rota.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="proximo-passo">
+      <div class="cta">
+        <p class="kicker" style="color: rgba(255,255,255,.72);">Próximo passo</p>
+        <h2>Uma primeira reunião de diagnóstico.</h2>
+        <p>A partir dessa conversa, preparo um diagnóstico estratégico com recomendações práticas e um plano inicial de prioridades. Este trabalho não é apenas gestão de Instagram nem promessa de captação imediata; é uma consultoria estratégica para organizar as bases de crescimento de uma atuação médica particular em um mercado estruturalmente promissor.</p>
+        <span class="cta-note">Reunião focada em clareza, oportunidades e prioridades.</span>
+      </div>
+    </section>
+
+    <footer>
+      <p>Convite estratégico preparado para Dra. Daniela · Gestão e crescimento para saúde particular</p>
+    </footer>
+  </main>
+</body>
+</html>
